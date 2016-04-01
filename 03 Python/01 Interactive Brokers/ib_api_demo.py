@@ -83,7 +83,7 @@ if __name__ == "__main__":
     my_contract = create_contract('GOOG', 'STK', 'SMART', 'SMART', 'USD')
 
     # Go long 100 shares of Google
-    my_order = create_order('MKT', 100, 'BUY', 'DU365775') # my account tag in top right of GUI
+    my_order = create_order('MKT', 100, 'BUY', 'DUxxxxxx') # my account tag in top right of GUI
 
     # Use the connection to the send the order to IB
     tws_conn.placeOrder(order_id, my_contract, my_order)

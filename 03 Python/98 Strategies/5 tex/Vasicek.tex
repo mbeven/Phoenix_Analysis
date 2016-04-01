@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,mathtools,amssymb} % Math packages
+\usepackage[margin=1.75cm]{geometry}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{multicol}
+\allowdisplaybreaks
+\usepackage{hyperref}
+
+% Binomial tree
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+% Permutations and combinations 
+\newcommand*{\Perm}[2]{{}^{#1}\!P_{#2}}%
+\newcommand*{\Comb}[2]{{}^{#1}C_{#2}}%
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\raggedright \normalfont\scshape} % Make all sections left, the default font and small caps
+\renewcommand{\thesubsection}{\alph{subsection}} % Make the subsections letters
+\newcommand{\rreduce}[2]{\mathop{\longrightarrow}_{\tiny{#1}}}
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize 
+\textsc{University of Chicago | Financial Mathematics} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Vasicek \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Michael Beven - 455613} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\break
+
+The Vasicek model is given by:
+
+\begin {align*}
+dr(t) = \alpha(\mu - r(t))\mathrm{d}t + \sigma \mathrm{d} \tilde W(t)
+\end{align*}
+
+Where $r(t)$ is the risk-free rate of interest.  For $s > 0$, $r(t+s)$ given $r(t)$ is Normally distributed under the physical probability measure with mean $\mu + (r(t) - \mu)e^{- \alpha s}$ and variance $\frac{\sigma^2 (1 - e^{-2\alpha s})}{2\alpha}$.
+
+Prices for zero-coupon bonds are given by:
+
+\begin{align*}
+P(t,T) = e^{A(t,T) - B(t,T)r(t)}
+\end{align*}
+
+where
+
+\begin{align*}
+B(t,T) &= \frac{1-e^{-\alpha (T - t)}}{\alpha}\\
+A(t,T) &= (B(t,T) - (T - t))\Bigg( \mu - \frac{\sigma^2}{2\alpha^2}\Bigg) - \frac{\sigma^2}{4\alpha}B(t,T)^2
+\end{align*}
+
+The price of the European call which matures at time $S$ with strike $K$ and exercise date $T$ (with $T < S$) is:
+
+\begin{align*}
+V_c(t) &= P(t,S)\Phi (d_1) - K P(t,T) \Phi(d_2)
+\end{align*}
+
+where
+
+\begin{align*}
+d_1 &= \frac{1}{\sigma_p} log \frac{P(t,S)}{KP(t,T)} + \frac{\sigma_p}{2}, \hspace{10mm} d_2 = d_1 - \sigma_p\\
+\sigma_p &= \frac{\sigma}{\alpha} (1 - e^{-\alpha (S - T)}) \sqrt{\frac{1 - e^{-2\alpha(T-t)}}{2\alpha}}
+\end{align*}
+
+By put-call parity, we also have the price of the corresponding European put as:
+
+\begin{align*}
+V_p(t) &= K P(t,T) \Phi(-d_2) - P(t,S)\Phi (-d_1)
+\end{align*}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

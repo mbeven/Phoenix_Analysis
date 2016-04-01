@@ -1,5 +1,8 @@
 # ***Phoenix Analysis***
 
+Note: full descriptions on mini projects I have done can be found on [my
+WordPress site](https://phoenixanalysis.wordpress.com).
+
 Hello!
 
 This is my blog about trading (mostly algorithms).  The goal is eventually to

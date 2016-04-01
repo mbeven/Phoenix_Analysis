@@ -17,10 +17,8 @@ Daniel Duffy
 text)
 * A Course in Derivative Securities: Introduction to Theory and Compution - Kerry
 Back (VBA based text)
-* Trading Systems: A new approach to system development and portfolio optimisation
-- Urban Jaekle, Emilio Tomasini
-* Algorithmic Trading & DMA: An Introduction to Direct Access Trading Strategies -
-Barry Johnson
+* Trading Systems: A new approach to system development and portfolio optimisation - Urban Jaekle, Emilio Tomasini
+* Algorithmic Trading & DMA: An Introduction to Direct Access Trading Strategies - Barry Johnson
 * Quantitative Trading: How to Build Your Own Algorithmic Trading Business -
 Ernest P. Chan (MATLAB based text)
 * Monte Carlo Methods in Financial Engineering - Paul Glasserman
@@ -29,6 +27,7 @@ Ernest P. Chan (MATLAB based text)
 * Coursera.com
 * All my Financial Mathematics professors at the University of Chicago and the
 Australian National University
+
 Also feel free to email me! mbeven@uchicago.edu
 
 Bev
